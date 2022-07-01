@@ -65,7 +65,7 @@ for i,v in pairs(game.Players:GetPlayers()) do
 end
 
 game.Players.PlayerAdded:Connect(playerAdded)
-end
+
 local uis = game:GetService("UserInputService")
     local Jump = true
 
