@@ -65,3 +65,36 @@ end
 
 game.Players.PlayerAdded:Connect(playerAdded)
 end
+
+wait()
+
+if getgenv().super == true then
+   local uis = game:GetService("UserInputService")
+    local Jump = true
+
+    uis.InputBegan:Connect(function(input,gameProcessedEvent) if not gameProcessedEvent then
+	    if input.KeyCode == Enum.KeyCode.R then
+	        if Jump == true then
+	            Jump = false
+	            getgenv().Glitch = true
+
+	            local Players = game.Players
+
+	            while getgenv().Glitch do wait()
+	            Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(1, 1, 1)
+	            end
+	        elseif Jump == false then
+	            Jump = true
+	            getgenv().Glitch = false
+	        end
+	    elseif input.KeyCode == Enum.KeyCode.E then
+	        if getgenv().Glitch == true then
+	            wait(0)
+	            keypress(0x20)
+	            wait(1)
+	            keyrelease(0x20)
+	        end
+	    end
+    end
+    end)
+  end
